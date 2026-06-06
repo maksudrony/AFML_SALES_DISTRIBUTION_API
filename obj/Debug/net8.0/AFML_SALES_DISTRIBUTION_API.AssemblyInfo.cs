@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AFML_SALES_DISTRIBUTION_API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+56dbf7a572935d57b608ec6d6bed53ddda8d34a2")]
 [assembly: System.Reflection.AssemblyProductAttribute("AFML_SALES_DISTRIBUTION_API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AFML_SALES_DISTRIBUTION_API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
