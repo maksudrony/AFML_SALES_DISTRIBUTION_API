@@ -11,7 +11,7 @@ namespace AFML_SALES_DISTRIBUTION_API.Services.Do_LiftingReport
         {
             _repo = repo;
         }
-        public async Task<List<LiftingAndDoReportDto>> GetLiftingAndDoReportServiceAsync (DateTime? fromDate, DateTime? toDate, DateTime? dayFromDate, DateTime? dayToDate,
+        public async Task<LiftingAndDoReportResponseDto> GetLiftingAndDoReportServiceAsync (DateTime? fromDate, DateTime? toDate, DateTime? dayFromDate, DateTime? dayToDate,
             int? channelId, int? channelTypeId, int typeId, int reportTypeId, string entryBy)
         {
             if (!fromDate.HasValue || !toDate.HasValue)
@@ -21,6 +21,10 @@ namespace AFML_SALES_DISTRIBUTION_API.Services.Do_LiftingReport
             else if (!dayFromDate.HasValue || !dayToDate.HasValue)
             {
                 throw new ArgumentException("Opss! You must Select the Day From Date And Day To date!");
+            }
+            else if (typeId == 0 || reportTypeId == 0 || string.IsNullOrWhiteSpace(entryBy))
+            {
+                throw new ArgumentException("Opss! Required parameters cannot be null or empty.");
             }
 
             return await _repo.GetLiftingAndDoReportFromDbAsync(fromDate, toDate, dayFromDate, dayToDate,
