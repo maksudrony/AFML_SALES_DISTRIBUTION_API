@@ -61,6 +61,9 @@ builder.Services.AddScoped<ISummaryImsReportService, SummaryImsReportService>();
 builder.Services.AddScoped<ILiftingAndDoReportRepository, LiftingAndDoReportRepository>();
 builder.Services.AddScoped<ILiftingAndDoReportService, LiftingAndDoReportService>();
 
+builder.Services.AddScoped<IAverageRateRptRepository, AverageRateRptRepository>();
+builder.Services.AddScoped<IAverageRateRptService, AverageRateRptService>();
+
 builder.Services.AddScoped<IProductWiseDeliveryReportRepository, ProductWiseDeliveryReportRepository>();
 builder.Services.AddScoped<IProductWiseDeliveryReportService, ProductWiseDeliveryReportService>();
 
