@@ -12,7 +12,7 @@ namespace AFML_SALES_DISTRIBUTION_API.Controllers
         private readonly ICommonParameterService _paramService;
         public CommonParametersController(ICommonParameterService paramService) => _paramService = paramService;
 
-        [HttpGet("channels/{userId}")]
+        [HttpGet("channels")]
         public async Task<IActionResult> GetChannels(string userId)
         {
             try 
@@ -21,11 +21,14 @@ namespace AFML_SALES_DISTRIBUTION_API.Controllers
             }
             catch (Exception ex) 
             { 
-                return BadRequest(new { error = ex.Message }); 
+                return BadRequest(new 
+                { 
+                    error = ex.Message 
+                }); 
             }
         }
 
-        [HttpGet("zones/{userId}/{channelId}")]
+        [HttpGet("zones")]
         public async Task<IActionResult> GetZones(string userId, decimal channelId)
         {
             try 
@@ -34,11 +37,14 @@ namespace AFML_SALES_DISTRIBUTION_API.Controllers
             }
             catch (Exception ex) 
             { 
-                return BadRequest(new { error = ex.Message }); 
+                return BadRequest(new 
+                { 
+                    error = ex.Message 
+                }); 
             }
         }
 
-        [HttpGet("divisions/{userId}/{zoneId}")]
+        [HttpGet("divisions")]
         public async Task<IActionResult> GetDivisions(string userId, decimal zoneId)
         {
             try 
@@ -47,11 +53,14 @@ namespace AFML_SALES_DISTRIBUTION_API.Controllers
             }
             catch (Exception ex) 
             { 
-                return BadRequest(new { error = ex.Message }); 
+                return BadRequest(new 
+                { 
+                    error = ex.Message 
+                }); 
             }
         }
 
-        [HttpGet("areas/{userId}/{divisionId}")]
+        [HttpGet("areas")]
         public async Task<IActionResult> GetAreas(string userId, decimal divisionId)
         {
             try 
@@ -60,11 +69,14 @@ namespace AFML_SALES_DISTRIBUTION_API.Controllers
             }
             catch (Exception ex) 
             { 
-                return BadRequest(new { error = ex.Message }); 
+                return BadRequest(new 
+                { 
+                    error = ex.Message 
+                }); 
             }
         }
 
-        [HttpGet("territories/{userId}/{areaId}")]
+        [HttpGet("territories")]
         public async Task<IActionResult> GetTerritories(string userId, decimal areaId)
         {
             try 
@@ -73,7 +85,10 @@ namespace AFML_SALES_DISTRIBUTION_API.Controllers
             }
             catch (Exception ex) 
             { 
-                return BadRequest(new { error = ex.Message }); 
+                return BadRequest(new 
+                { 
+                    error = ex.Message 
+                }); 
             }
         }
 
@@ -86,7 +101,10 @@ namespace AFML_SALES_DISTRIBUTION_API.Controllers
             }
             catch (Exception ex) 
             { 
-                return BadRequest(new { error = ex.Message }); 
+                return BadRequest(new 
+                { 
+                    error = ex.Message 
+                }); 
             }
         }
 
@@ -99,7 +117,10 @@ namespace AFML_SALES_DISTRIBUTION_API.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(new { error = ex.Message });
+                return BadRequest(new 
+                { 
+                    error = ex.Message 
+                });
             }
         }
 
@@ -112,7 +133,10 @@ namespace AFML_SALES_DISTRIBUTION_API.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(new { error = ex.Message });
+                return BadRequest(new 
+                { 
+                    error = ex.Message 
+                });
             }
         }
 
@@ -125,7 +149,10 @@ namespace AFML_SALES_DISTRIBUTION_API.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(new { error = ex.Message });
+                return BadRequest(new 
+                { 
+                    error = ex.Message 
+                });
             }
         }
 
@@ -138,7 +165,10 @@ namespace AFML_SALES_DISTRIBUTION_API.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(new { error = ex.Message });
+                return BadRequest(new 
+                { 
+                    error = ex.Message 
+                });
             }
         }
     }

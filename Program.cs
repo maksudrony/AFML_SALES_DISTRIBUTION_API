@@ -58,6 +58,9 @@ builder.Services.AddScoped<ISummaryImsReportRepository, SummaryImsReportReposito
 builder.Services.AddScoped<ISummaryImsReportService, SummaryImsReportService>();
 
 // DO And Lifting Report Menu
+builder.Services.AddScoped<IDayWiseDelRptService, DayWiseDelRptService>();
+builder.Services.AddScoped<IDayWiseDelRptRepository, DayWiseDelRptRepository>();
+
 builder.Services.AddScoped<ILiftingAndDoReportRepository, LiftingAndDoReportRepository>();
 builder.Services.AddScoped<ILiftingAndDoReportService, LiftingAndDoReportService>();
 
