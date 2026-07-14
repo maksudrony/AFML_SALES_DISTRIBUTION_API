@@ -4,7 +4,8 @@ namespace AFML_SALES_DISTRIBUTION_API.Interfaces.Do_LiftingReport
 {
     public interface IAverageRateRptService
     {
-        Task<AverageRateRptResponseDto> GetAverageRateRptServiceAsync(DateTime? fromDate, DateTime? toDate, DateTime? dayFromDate, DateTime? dayToDate,
-        int? channelId, int? channelTypeId, int typeId, int reportTypeId, string entryBy);
+        Task<AverageRateRptResponseDto> GetAverageRateRptServiceAsync(DateTime? fromDate, DateTime? toDate, 
+            DateTime? dayFromDate, DateTime? dayToDate, int? channelId, int? channelTypeId, int typeId, 
+            int reportTypeId, string entryBy);
     }
 }

@@ -16,5 +16,8 @@ namespace AFML_SALES_DISTRIBUTION_API.Interfaces
         Task<List<CommonParameterDto>> GetSalesChannelTypeFromDbAsync(string userId);
         Task<List<CommonParameterDto>> GetQuantityTypeFromDbAsync();
         Task<List<CommonParameterDto>> GetReportTypeFromDbAsync();
+        Task<List<CommonParameterDto>> GetTimeManagementFromDbAsync();
+        Task<List<CommonParameterDto>> GetChallanDistributorFromDbAsync(DateTime? fromDate, DateTime? toDate,
+            decimal? channelId, string userId);
     }
 }

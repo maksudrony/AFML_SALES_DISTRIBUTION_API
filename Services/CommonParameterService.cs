@@ -37,6 +37,13 @@ namespace AFML_SALES_DISTRIBUTION_API.Services
         {
             return await _repo.GetReportTypeFromDbAsync();
         }
+        public async Task<List<CommonParameterDto>> GetTimeManagementServiceAsync() =>
+             await _repo.GetTimeManagementFromDbAsync();
+
+        public async Task<List<CommonParameterDto>> GetChallanDistributorServiceAsync(DateTime? fromDate, DateTime? toDate,
+            decimal? channelId, string userId) =>
+            await _repo.GetChallanDistributorFromDbAsync(fromDate, toDate, channelId, userId);
+
 
     }
 }
