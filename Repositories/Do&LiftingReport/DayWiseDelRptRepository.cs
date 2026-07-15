@@ -21,6 +21,7 @@ public class DayWiseDelRptRepository : IDayWiseDelRptRepository
         int fromTime,
         int toTime,
         int? channelId,
+        int? distribId,
         string entryBy)
     {
         const string storedProcedureName = "AFML_ERP.PRC_DAY_WISE_DEL_RPT_MST_REACT";
@@ -38,6 +39,7 @@ public class DayWiseDelRptRepository : IDayWiseDelRptRepository
         command.Parameters.Add("P_FROM_TIME", OracleDbType.Decimal).Value = fromTime;
         command.Parameters.Add("P_TO_TIME", OracleDbType.Decimal).Value = toTime;
         command.Parameters.Add("P_CHANNEL_ID", OracleDbType.Decimal).Value = (object?)channelId ?? DBNull.Value;
+        command.Parameters.Add("P_DISTRIB_ID", OracleDbType.Decimal).Value = (object?)distribId ?? DBNull.Value;
         command.Parameters.Add("P_ENTRY_BY", OracleDbType.Varchar2).Value = entryBy;
 
         var resultCursor = new OracleParameter("P_MST_RESULT", OracleDbType.RefCursor)
@@ -69,6 +71,7 @@ public class DayWiseDelRptRepository : IDayWiseDelRptRepository
             int territoryIdIndex = reader.GetOrdinal("TERRITORY_ID");
             int territoryNameIndex = reader.GetOrdinal("TERRITORY_NAME");
             int distribIdIndex = reader.GetOrdinal("DISTRIB_ID");
+            int distribCodeIndex = reader.GetOrdinal("DISTRIB_CODE");
             int distribNameIndex = reader.GetOrdinal("DISTRIB_NAME");
             int challanQtyIndex = reader.GetOrdinal("CHALLAN_QTY");
 
@@ -77,7 +80,7 @@ public class DayWiseDelRptRepository : IDayWiseDelRptRepository
                 var row = new DayWiseDelRptMstDto
                 {
                     DcId = reader.IsDBNull(dcIdIndex)
-                        ? 0
+                        ? null
                         : reader.GetInt64(dcIdIndex),
 
                     DcNo = reader.IsDBNull(dcNoIndex)
@@ -93,7 +96,7 @@ public class DayWiseDelRptRepository : IDayWiseDelRptRepository
                         : reader.GetString(confirmDateIndex),
 
                     DoId = reader.IsDBNull(doIdIndex)
-                        ? 0
+                        ? null
                         : reader.GetInt64(doIdIndex),
 
                     DoNo = reader.IsDBNull(doNoIndex)
@@ -101,7 +104,7 @@ public class DayWiseDelRptRepository : IDayWiseDelRptRepository
                         : reader.GetString(doNoIndex),
 
                     ChannelId = reader.IsDBNull(channelIdIndex)
-                        ? 0
+                        ? null
                         : reader.GetInt32(channelIdIndex),
 
                     ChannelName = reader.IsDBNull(channelNameIndex)
@@ -109,7 +112,7 @@ public class DayWiseDelRptRepository : IDayWiseDelRptRepository
                         : reader.GetString(channelNameIndex),
 
                     ZoneId = reader.IsDBNull(zoneIdIndex)
-                        ? 0
+                        ? null
                         : reader.GetInt32(zoneIdIndex),
 
                     ZoneName = reader.IsDBNull(zoneNameIndex)
@@ -117,15 +120,15 @@ public class DayWiseDelRptRepository : IDayWiseDelRptRepository
                         : reader.GetString(zoneNameIndex),
 
                     DivisionId = reader.IsDBNull(divisionIdIndex)
-                        ? 0
+                        ? null
                         : reader.GetInt32(divisionIdIndex),
 
                     AreaId = reader.IsDBNull(areaIdIndex)
-                        ? 0
+                        ? null
                         : reader.GetInt32(areaIdIndex),
 
                     TerritoryId = reader.IsDBNull(territoryIdIndex)
-                        ? 0
+                        ? null
                         : reader.GetInt32(territoryIdIndex),
 
                     TerritoryName = reader.IsDBNull(territoryNameIndex)
@@ -133,15 +136,19 @@ public class DayWiseDelRptRepository : IDayWiseDelRptRepository
                         : reader.GetString(territoryNameIndex),
 
                     DistribId = reader.IsDBNull(distribIdIndex)
-                        ? 0
+                        ? null
                         : reader.GetInt32(distribIdIndex),
+
+                    DistribCode = reader.IsDBNull(distribCodeIndex)
+                        ? string.Empty
+                        : reader.GetString(distribCodeIndex),
 
                     DistribName = reader.IsDBNull(distribNameIndex)
                         ? string.Empty
                         : reader.GetString(distribNameIndex),
 
                     ChallanQty = reader.IsDBNull(challanQtyIndex)
-                        ? 0
+                        ? null
                         : reader.GetDecimal(challanQtyIndex)
                 };
 
@@ -157,7 +164,8 @@ public class DayWiseDelRptRepository : IDayWiseDelRptRepository
         }
         catch (Exception ex)
         {
-            throw new Exception("An unexpected error occurred while generating the Day Wise Delivery Detail Report.", ex);
+            throw new Exception(ex.Message);
+            //throw new Exception("An unexpected error occurred while generating the Day Wise Delivery Detail Report.", ex);
         }
         finally
         {
@@ -202,17 +210,19 @@ public class DayWiseDelRptRepository : IDayWiseDelRptRepository
             int prodNameIndex = reader.GetOrdinal("PROD_NAME");
             int unitNameIndex = reader.GetOrdinal("UNIT_NAME");
             int challanQtyIndex = reader.GetOrdinal("CHALLAN_QTY");
+            int productPriceIndex = reader.GetOrdinal("PRODUCT_PRICE");
+            int challanValueIndex = reader.GetOrdinal("CHALLAN_VALUE");
 
             while (await reader.ReadAsync())
             {
                 var row = new DayWiseDelRptDtlDto
                 {
                     DcId = reader.IsDBNull(dcIdIndex)
-                        ? 0
+                        ? null
                         : reader.GetInt64(dcIdIndex),
 
                     ProductId = reader.IsDBNull(productIdIndex)
-                        ? 0
+                        ? null
                         : reader.GetInt32(productIdIndex),
 
                     ProdCode = reader.IsDBNull(prodCodeIndex)
@@ -228,8 +238,16 @@ public class DayWiseDelRptRepository : IDayWiseDelRptRepository
                         : reader.GetString(unitNameIndex),
 
                     ChallanQty = reader.IsDBNull(challanQtyIndex)
-                        ? 0
-                        : reader.GetDecimal(challanQtyIndex)
+                        ? null
+                        : reader.GetDecimal(challanQtyIndex),
+
+                    ProductPrice = reader.IsDBNull(productPriceIndex)
+                        ? null
+                        : reader.GetDecimal(productPriceIndex),
+
+                    ChallanValue = reader.IsDBNull(challanValueIndex)
+                        ? null
+                        : reader.GetDecimal(challanValueIndex)
                 };
 
                 reportRows.Add(row);

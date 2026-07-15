@@ -16,12 +16,12 @@ namespace AFML_SALES_DISTRIBUTION_API.Controllers.Do_LiftingReport
 
         [HttpGet("day-wise-del-rpt-mst")]
         public async Task<ActionResult> GetMstReport(DateTime fromDate, DateTime toDate, int fromTime,
-            int toTime, int? channelId, string entryBy)
+            int toTime, int? channelId, int? distribId, string entryBy)
         {
             try
             {
                 var data = await _reportService.GetMstServiceAsync(fromDate, toDate, fromTime, toTime,
-                    channelId, entryBy);
+                    channelId, distribId, entryBy);
 
                 return Ok(data);
             }

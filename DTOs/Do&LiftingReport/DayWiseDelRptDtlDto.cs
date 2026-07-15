@@ -10,5 +10,7 @@
         public string UnitName { get; set; } = string.Empty;
 
         public decimal? ChallanQty { get; set; }
+        public decimal? ProductPrice { get; set; }
+        public decimal? ChallanValue { get; set; }
     }
 }

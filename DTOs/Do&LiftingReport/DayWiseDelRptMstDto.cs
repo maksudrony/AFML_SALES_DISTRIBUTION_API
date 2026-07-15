@@ -23,6 +23,7 @@
         public string TerritoryName { get; set; } = string.Empty;
 
         public int? DistribId { get; set; }
+        public string DistribCode { get; set; } = string.Empty;
         public string DistribName { get; set; } = string.Empty;
 
         public decimal? ChallanQty { get; set; }
