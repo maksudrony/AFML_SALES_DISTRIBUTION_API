@@ -83,7 +83,12 @@ namespace AFML_SALES_DISTRIBUTION_API.Repositories
             catch (OracleException ex)
             {
                 // 🚀 Ekhon absolute explicit procedure name throw korbe
-                throw new Exception($"Oracle database procedure '{storedProcedureName}' execution failed: {ex.Message}", ex);
+                throw new Exception("Unable to generate Summary IMS Report Please Check Procedure.", ex);
+                //throw new Exception($"Oracle database procedure '{storedProcedureName}' execution failed: {ex.Message}", ex);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("An unexpected error occurred while generating the Day Wise Delivery Detail Report.", ex);
             }
         }
     }

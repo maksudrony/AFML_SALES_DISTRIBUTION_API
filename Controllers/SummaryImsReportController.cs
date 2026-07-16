@@ -1,10 +1,12 @@
-﻿using System;
-using System.Threading.Tasks;
-using AFML_SALES_DISTRIBUTION_API.Interfaces;
+﻿using AFML_SALES_DISTRIBUTION_API.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Threading.Tasks;
 
 namespace AFML_SALES_DISTRIBUTION_API.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class SummaryImsReportController : ControllerBase

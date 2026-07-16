@@ -1,10 +1,12 @@
 ﻿using AFML_SALES_DISTRIBUTION_API.Interfaces.Do_LiftingReport;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AFML_SALES_DISTRIBUTION_API.Controllers.Do_LiftingReport
 {
-    [Route("api/[controller]")]
+    [Authorize]
     [ApiController]
+    [Route("api/[controller]")]
     public class DayWiseDelRptController : ControllerBase
     {
         private readonly IDayWiseDelRptService _reportService;

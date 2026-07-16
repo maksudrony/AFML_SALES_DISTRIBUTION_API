@@ -160,7 +160,7 @@ namespace AFML_SALES_DISTRIBUTION_API.Repositories.Do_LiftingReport
             }
             catch (OracleException ex)
             {
-                throw new Exception("Unable to generate Average Rate Report.", ex);
+                throw new Exception("Unable to generate Average Rate Report Please Check Procedure.", ex);
                 //throw new Exception($"Oracle database procedure '{storedProcedureName}' execution failed: {ex.Message}", ex);
             }
             catch (Exception ex)

@@ -1,5 +1,6 @@
 ﻿using AFML_SALES_DISTRIBUTION_API.DTOs.Do_LiftingReport;
 using AFML_SALES_DISTRIBUTION_API.Interfaces.Do_LiftingReport;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
@@ -9,8 +10,9 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace AFML_SALES_DISTRIBUTION_API.Controllers.Do_LiftingReport
 {
-    [Route("api/[controller]")]
+    [Authorize]
     [ApiController]
+    [Route("api/[controller]")]
     public class ProductWiseDeliveryReportController : ControllerBase
     {
         private readonly IProductWiseDeliveryReportService _reportService;

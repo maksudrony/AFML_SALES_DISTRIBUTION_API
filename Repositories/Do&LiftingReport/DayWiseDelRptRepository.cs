@@ -263,12 +263,5 @@ public class DayWiseDelRptRepository : IDayWiseDelRptRepository
         {
             throw new Exception("An unexpected error occurred while generating the Day Wise Delivery Detail Report.", ex);
         }
-        finally
-        {
-            if (connection.State == ConnectionState.Open)
-            {
-                await connection.CloseAsync();
-            }
-        }
     }
 }

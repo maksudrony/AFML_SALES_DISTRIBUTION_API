@@ -37,7 +37,7 @@ builder.Services.AddAuthentication(options =>
     options.TokenValidationParameters = new TokenValidationParameters
     {
         ValidateIssuerSigningKey = true,
-        IssuerSigningKey = new SymmetricSecurityKey(keyBytes),
+        IssuerSigningKey = new SymmetricSecurityKey(keyBytes), //signature verify
         ValidateIssuer = true,
         ValidIssuer = builder.Configuration["Jwt:Issuer"],
         ValidateAudience = true,
@@ -82,7 +82,7 @@ if (app.Environment.IsDevelopment())
 app.UseCors("AllowReactApp");
 
 // Execution sequences 
-app.UseAuthentication();
+app.UseAuthentication(); //JWT Middleware run
 app.UseAuthorization();
 
 app.MapControllers();
