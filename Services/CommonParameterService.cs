@@ -44,6 +44,9 @@ namespace AFML_SALES_DISTRIBUTION_API.Services
             decimal? channelId, string userId) =>
             await _repo.GetChallanDistributorFromDbAsync(fromDate, toDate, channelId, userId);
 
+        public async Task<List<CommonParameterDto>> GetChannelWiseDistributorServiceAsync(decimal? channelId, string userId) =>
+            await _repo.GetChannelWiseDistributorFromDbAsync(channelId, userId);
+
 
     }
 }

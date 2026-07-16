@@ -207,5 +207,21 @@ namespace AFML_SALES_DISTRIBUTION_API.Controllers
                 });
             }
         }
+
+        [HttpGet("channel-wise-distributor")]
+        public async Task<IActionResult> GetChannelWiseDistributor(decimal? channelId, string userId)
+        {
+            try
+            {
+                return Ok(await _paramService.GetChannelWiseDistributorServiceAsync(channelId, userId));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new
+                {
+                    error = ex.Message
+                });
+            }
+        }
     }
 }

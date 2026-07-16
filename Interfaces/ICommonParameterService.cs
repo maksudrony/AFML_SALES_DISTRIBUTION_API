@@ -19,5 +19,6 @@ namespace AFML_SALES_DISTRIBUTION_API.Interfaces
         Task<List<CommonParameterDto>> GetTimeManagementServiceAsync();
         Task<List<CommonParameterDto>> GetChallanDistributorServiceAsync(DateTime? fromDate, DateTime? toDate,
             decimal? channelId, string userId);
+        Task<List<CommonParameterDto>> GetChannelWiseDistributorServiceAsync(decimal? channelId, string userId);
     }
 }
