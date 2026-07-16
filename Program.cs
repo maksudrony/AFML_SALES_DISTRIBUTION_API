@@ -96,6 +96,9 @@ builder.Services.AddScoped<ILiftingAndDoReportService, LiftingAndDoReportService
 builder.Services.AddScoped<IAverageRateRptRepository, AverageRateRptRepository>();
 builder.Services.AddScoped<IAverageRateRptService, AverageRateRptService>();
 
+builder.Services.AddScoped<IDistribWisePendingRptRepository, DistribWisePendingRptRepository>();
+builder.Services.AddScoped<IDistribWisePendingRptService, DistribWisePendingRptService>();
+
 builder.Services.AddScoped<IProductWiseDeliveryReportRepository, ProductWiseDeliveryReportRepository>();
 builder.Services.AddScoped<IProductWiseDeliveryReportService, ProductWiseDeliveryReportService>();
 
