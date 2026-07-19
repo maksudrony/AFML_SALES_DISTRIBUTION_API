@@ -167,13 +167,6 @@ namespace AFML_SALES_DISTRIBUTION_API.Repositories.Do_LiftingReport
             {
                 throw new Exception("An unexpected error occurred while generating the Average Rate Report", ex);
             }
-            finally
-            {
-                if (connection.State == ConnectionState.Open)
-                {
-                    await connection.CloseAsync();
-                }
-            }
         }
     }
 }

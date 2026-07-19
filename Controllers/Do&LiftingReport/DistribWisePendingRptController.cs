@@ -21,13 +21,13 @@ namespace AFML_SALES_DISTRIBUTION_API.Controllers.Do_LiftingReport
 
         public async Task<ActionResult> GetDistribWisePendingRptReport(DateTime? fromDate, DateTime? toDate,
             int? channelId, int? zoneId, int? divisionId, int? areaId, int? territoryId, int? productId,
-            int? distribId, int orderTypeId, string entryBy)
+            int? distribId, int orderTypeId)
         {
             try
             {
                 var data = await _reportService.GetDistribWisePendingRptServiceAsync(fromDate, toDate,
                            channelId, zoneId, divisionId, areaId, territoryId, productId,
-                           distribId, orderTypeId, entryBy);
+                           distribId, orderTypeId);
                 return Ok(data);
             }
             catch (Exception ex)

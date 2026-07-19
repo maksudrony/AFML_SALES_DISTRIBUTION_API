@@ -25,8 +25,7 @@ namespace AFML_SALES_DISTRIBUTION_API.Repositories.Do_LiftingReport
             int? territoryId, 
             int? productId,
             int? distribId, 
-            int orderTypeId, 
-            string entryBy)
+            int orderTypeId)
         {
             const string storedProcedureName = "AFML_ERP.PRC_DISTRIB_WISE_PENDING_RPT_REACT";
 

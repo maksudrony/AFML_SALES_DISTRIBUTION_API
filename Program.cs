@@ -81,6 +81,8 @@ builder.Services.AddScoped<IAuthRepository, AuthRepository>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<ICommonParameterRepository, CommonParameterRepository>();
 builder.Services.AddScoped<ICommonParameterService, CommonParameterService>();
+builder.Services.AddScoped<IChannelWiseDistribRepository, ChannelWiseDistribRepository>();
+builder.Services.AddScoped<IChannelWiseDistribService, ChannelWiseDistribService>();
 
 // IMS Report Menu
 builder.Services.AddScoped<ISummaryImsReportRepository, SummaryImsReportRepository>();
