@@ -189,23 +189,5 @@ namespace AFML_SALES_DISTRIBUTION_API.Controllers
                 });
             }
         }
-
-        [HttpGet("challan-distributor")]
-        public async Task<IActionResult> GetChallanDistributor(DateTime? fromDate, DateTime? toDate,
-            decimal? channelId, string userId)
-        {
-            try
-            {
-                return Ok(await _paramService.GetChallanDistributorServiceAsync(fromDate, toDate,
-                channelId, userId));
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(new
-                {
-                    error = ex.Message
-                });
-            }
-        }
     }
 }

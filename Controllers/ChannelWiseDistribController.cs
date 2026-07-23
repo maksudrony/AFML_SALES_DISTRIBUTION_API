@@ -16,7 +16,7 @@ namespace AFML_SALES_DISTRIBUTION_API.Controllers
         public ChannelWiseDistribController(IChannelWiseDistribService service) => _service = service;
 
         [HttpGet("channel-wise-distrib")]
-        public async Task<IActionResult> Get(
+        public async Task<IActionResult> GetChannelWiseDistrib(
             [FromQuery] int? channelId,
             [FromQuery] string userId,
             [FromQuery] string? search,

@@ -83,6 +83,8 @@ builder.Services.AddScoped<ICommonParameterRepository, CommonParameterRepository
 builder.Services.AddScoped<ICommonParameterService, CommonParameterService>();
 builder.Services.AddScoped<IChannelWiseDistribRepository, ChannelWiseDistribRepository>();
 builder.Services.AddScoped<IChannelWiseDistribService, ChannelWiseDistribService>();
+builder.Services.AddScoped<IChallanWiseDistribRepository, ChallanWiseDistribRepository>();
+builder.Services.AddScoped<IChallanWiseDistribService, ChallanWiseDistribService>();
 
 // IMS Report Menu
 builder.Services.AddScoped<ISummaryImsReportRepository, SummaryImsReportRepository>();

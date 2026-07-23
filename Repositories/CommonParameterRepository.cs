@@ -136,17 +136,5 @@ namespace AFML_SALES_DISTRIBUTION_API.Repositories
             return await ExecuteParamSPAsync("AFML_ERP.PRC_TIME_MANAGEMENT", []);
         }
 
-        public async Task<List<CommonParameterDto>> GetChallanDistributorFromDbAsync(DateTime? fromDate, DateTime? toDate,
-            decimal? channelId, string userId)
-        {
-            var p = new List<OracleParameter> {
-                new("P_FROM_DATE", OracleDbType.Date) { Value = fromDate },
-                new("P_TO_DATE", OracleDbType.Date) { Value = toDate },
-                new("P_CHANNEL_ID", OracleDbType.Decimal) { Value = channelId },
-                new("P_USER_ID", OracleDbType.Varchar2) { Value = userId }
-            };
-            return await ExecuteParamSPAsync("AFML_ERP.PRC_CHALLAN_DISTRIBUTOR", p);
-        }
-
     }
 }

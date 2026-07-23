@@ -56,7 +56,6 @@ namespace AFML_SALES_DISTRIBUTION_API.Repositories
             };
             command.Parameters.Add(empNameParam);
 
-            // 🚀 ৩. ডাটাবেজের নতুন আউটপুট প্যারামিটার P_EMP_ENROLL
             var empEnrollParam = new OracleParameter
             {
                 ParameterName = "P_EMP_ENROLL",
@@ -71,7 +70,7 @@ namespace AFML_SALES_DISTRIBUTION_API.Repositories
 
             int statusOutcomeCode = 0;
             string employeeNameValue = "Employee";
-            string employeeEnrollValue = "0"; // ডিফল্ট
+            string employeeEnrollValue = "0"; 
 
             if (resultParam.Value != DBNull.Value)
             {
@@ -83,7 +82,6 @@ namespace AFML_SALES_DISTRIBUTION_API.Repositories
                 employeeNameValue = empNameParam.Value.ToString()!;
             }
 
-            // 🚀 আউটপুট ভ্যালু স্ট্রিং হিসেবে তুলে আনা হচ্ছে
             if (empEnrollParam.Value != DBNull.Value)
             {
                 employeeEnrollValue = empEnrollParam.Value.ToString()!;
